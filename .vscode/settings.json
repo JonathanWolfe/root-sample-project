@@ -1,0 +1,9 @@
+{
+    "workbench.colorCustomizations": {},
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.suggest.completeFunctionCalls": true,
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false,
+    "javascript.suggestionActions.enabled": false,
+    "typescript.suggestionActions.enabled": false
+}

@@ -1,0 +1,25 @@
+{
+  "name": "root_code_sample",
+  "version": "1.0.0",
+  "description": "Simple code sample project for Root hiring process",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/main.js",
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parse": "node ./src/index.js -i sample_data.txt"
+  },
+  "keywords": [],
+  "author": "Jon Wolfe <jonathanwolfe5@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "commander": "^2.20.0"
+  }
+}

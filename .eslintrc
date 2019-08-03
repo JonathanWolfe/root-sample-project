@@ -1,0 +1,9 @@
+{
+	"globals": {
+		"node": true
+	},
+	"extends": ["eslint:recommended", "airbnb-base", "prettier"],
+	"rules": {
+		"no-console": "off"
+	}
+}
