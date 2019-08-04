@@ -10,8 +10,33 @@
 			"name": "Parse Sample Text",
 			"program": "${workspaceFolder}\\src\\index.js",
 			"args": [
+				"parse",
 				"-i",
 				"${workspaceFolder}\\utils\\sample_data.txt"
+			],
+			"showAsyncStacks": true,
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Parse Generated Text",
+			"program": "${workspaceFolder}\\src\\index.js",
+			"args": [
+				"parse",
+				"-i",
+				"${workspaceFolder}\\utils\\generated_data.txt"
+			],
+			"showAsyncStacks": true,
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Generate Data",
+			"program": "${workspaceFolder}\\src\\index.js",
+			"args": [
+				"generate",
+				"-d",
+				"5"
 			],
 			"showAsyncStacks": true,
 		}

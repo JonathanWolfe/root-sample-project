@@ -29,9 +29,13 @@ function generateReport(args) {
 	});
 
 	rl.on('close', function onClose() {
-		Object.values(global.drivers).forEach(function printSummary(driver) {
-			console.log(driver.summary);
-		});
+		const sorted = Object.values(global.drivers).sort(
+			(a, b) => b.totalMiles - a.totalMiles
+		);
+
+		for (let index = 0; index < sorted.length; index += 1) {
+			console.log(sorted[index].summary);
+		}
 	});
 }
 

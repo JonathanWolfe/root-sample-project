@@ -32,6 +32,38 @@ class Driver {
 	}
 
 	/**
+	 * Total miles the driver has driven
+	 *
+	 * @type {number}
+	 * @readonly
+	 * @memberof Driver
+	 */
+	get totalMiles() {
+		return this.validTrips.reduce((sum, curr) => sum + curr.miles, 0);
+	}
+
+	/**
+	 * Total hours the driver has driven
+	 *
+	 * @type {number}
+	 * @readonly
+	 * @memberof Driver
+	 */
+	get totalHours() {
+		return this.validTrips.reduce((sum, curr) => sum + curr.hoursElapsed, 0);
+	}
+
+	/**
+	 * Average mph the driver has gone over all trips
+	 *
+	 * @readonly
+	 * @memberof Driver
+	 */
+	get averageMPH() {
+		return this.totalHours ? this.totalMiles / this.totalHours : 0;
+	}
+
+	/**
 	 * Returns a string describing the total miles and
 	 * average miles per hour of the driver's trips
 	 *
@@ -40,19 +72,14 @@ class Driver {
 	 * @memberof Driver
 	 */
 	get summary() {
-		const totalMiles = this.validTrips.reduce((sum, curr) => sum + curr.miles, 0);
-
-		if (!totalMiles) {
+		if (!this.totalMiles) {
 			return `${this.name}: 0 miles`;
 		}
 
-		const totalHours = this.validTrips.reduce(
-			(sum, curr) => sum + curr.hoursElapsed,
-			0
-		);
-		const averageMPH = totalHours ? Math.ceil(totalMiles / totalHours) : 0;
+		const miles = Math.round(this.totalMiles);
+		const avgMPH = Math.round(this.averageMPH);
 
-		return `${this.name}: ${totalMiles} miles @ ${averageMPH}mph`;
+		return `${this.name}: ${miles} miles @ ${avgMPH}mph`;
 	}
 }
 

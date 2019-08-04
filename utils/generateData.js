@@ -53,14 +53,16 @@ const names = [
 ];
 
 /**
- * Generates a random number between 2 bounds, inclusive
+ * Generates a random Integer between 2 bounds, inclusive
  *
  * @param {number} [lower=0] - Lower Bound
  * @param {number} [upper=100] - Upper Bound
  * @returns {number}
  */
 function randBetweenBounds(lower = 0, upper = 100) {
-	return Math.floor(Math.random() * upper) + lower;
+	const min = Math.ceil(lower);
+	const max = Math.floor(upper);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -114,6 +116,10 @@ function generateStartEndPair() {
 	return {
 		start: `${leadingZero(startHour)}:${leadingZero(startMinute)}`,
 		end: `${leadingZero(endHour)}:${leadingZero(endMinute)}`,
+		startHour,
+		startMinute,
+		endHour,
+		endMinute,
 	};
 }
 
@@ -131,11 +137,13 @@ function generateTestData(numDrivers = 10, numTrips = 50) {
 
 	while (trips.length < numTrips) {
 		const startEnd = generateStartEndPair();
+		const mph = Math.random() * 110; // max speed of 110.99 miles
+		const hours = startEnd.endHour - startEnd.startHour;
 		const trip = {
 			driver: drivers[randBetweenBounds(0, numDrivers - 1)],
 			start: startEnd.start,
 			end: startEnd.end,
-			miles: parseFloat((Math.random() * 110).toFixed(2)), // max distance of 110.99 miles
+			miles: parseFloat((hours * mph).toFixed(2)),
 		};
 
 		trips.push(trip);

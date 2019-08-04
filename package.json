@@ -8,7 +8,8 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "test": "ava",
-    "parse": "node ./src/index.js -i ./utils/sample_data.txt"
+    "parse": "node ./src/index.js parse -i ./utils/sample_data.txt",
+    "generate": "node ./src/index.js generate -o"
   },
   "keywords": [],
   "author": "Jon Wolfe <jonathanwolfe5@gmail.com>",
