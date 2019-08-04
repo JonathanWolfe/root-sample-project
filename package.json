@@ -2,10 +2,7 @@
   "name": "root_code_sample",
   "version": "1.0.0",
   "description": "Simple code sample project for Root hiring process",
-  "type": "module",
   "main": "./src/index.js",
-  "module": "./src/main.js",
-  "bin": "./bin/cli.js",
   "scripts": {
     "test": "ava",
     "parse": "node ./src/index.js parse -i ./utils/sample_data.txt",

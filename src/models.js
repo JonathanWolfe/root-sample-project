@@ -24,8 +24,8 @@ class Driver {
 	 */
 	get validTrips() {
 		return this.trips.filter(function filterTrip(trip) {
-			if (trip.averageMPH <= 5) return false;
-			if (trip.averageMPH >= 100) return false;
+			if (trip.milesPerHour <= 5) return false;
+			if (trip.milesPerHour >= 100) return false;
 
 			return true;
 		});
