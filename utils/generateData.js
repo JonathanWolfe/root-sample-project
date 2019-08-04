@@ -66,7 +66,7 @@ function randBetweenBounds(lower = 0, upper = 100) {
 /**
  * O(n) Fisher-Yates shuffle
  *
- * @param {array} [array=[]] - array to shuffle
+ * @param {array} [array=[]] - Array to shuffle
  * @returns {array}
  */
 function fisherYatesShuffle(array = []) {

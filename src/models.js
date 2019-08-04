@@ -16,6 +16,22 @@ class Driver {
 	}
 
 	/**
+	 * Filtered subset of trips that meet criteria
+	 *
+	 * @type {Trip[]}
+	 * @readonly
+	 * @memberof Driver
+	 */
+	get validTrips() {
+		return this.trips.filter(function filterTrip(trip) {
+			if (trip.averageMPH <= 5) return false;
+			if (trip.averageMPH >= 100) return false;
+
+			return true;
+		});
+	}
+
+	/**
 	 * Returns a string describing the total miles and
 	 * average miles per hour of the driver's trips
 	 *
@@ -24,13 +40,16 @@ class Driver {
 	 * @memberof Driver
 	 */
 	get summary() {
-		const totalMiles = this.trips.reduce((sum, curr) => sum + curr.miles, 0);
+		const totalMiles = this.validTrips.reduce((sum, curr) => sum + curr.miles, 0);
 
 		if (!totalMiles) {
 			return `${this.name}: 0 miles`;
 		}
 
-		const totalHours = this.trips.reduce((sum, curr) => sum + curr.hoursElapsed, 0);
+		const totalHours = this.validTrips.reduce(
+			(sum, curr) => sum + curr.hoursElapsed,
+			0
+		);
 		const averageMPH = totalHours ? Math.ceil(totalMiles / totalHours) : 0;
 
 		return `${this.name}: ${totalMiles} miles @ ${averageMPH}mph`;
@@ -50,6 +69,7 @@ class Trip {
 	 * @param {string} params.driver - Name of the Driver
 	 * @param {string} params.startTime - HH:MM 24-hour clock
 	 * @param {string} params.endTime - HH:MM 24-hour clock
+	 * @param {number} params.miles - Miles the trip went
 	 * @memberof Trip
 	 */
 	constructor({

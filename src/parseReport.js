@@ -1,5 +1,6 @@
 const { Driver, Trip } = require('./models');
 
+// not ideal but anything more would be overkill for this
 global.drivers = {};
 
 function parseDriver(inputLine) {

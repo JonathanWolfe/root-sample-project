@@ -4,7 +4,7 @@ const path = require('path');
 
 const { parseDriver, parseTrip } = require('./parseReport');
 
-module.exports = function generateReport(args) {
+function generateReport(args) {
 	const rl = readline.createInterface({
 		input: fs.createReadStream(path.resolve(args.input)),
 	});
@@ -33,4 +33,6 @@ module.exports = function generateReport(args) {
 			console.log(driver.summary);
 		});
 	});
-};
+}
+
+module.exports = generateReport;

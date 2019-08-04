@@ -11,7 +11,7 @@
 			"program": "${workspaceFolder}\\src\\index.js",
 			"args": [
 				"-i",
-				"${workspaceFolder}\\sample_data.txt"
+				"${workspaceFolder}\\utils\\sample_data.txt"
 			],
 			"showAsyncStacks": true,
 		}
